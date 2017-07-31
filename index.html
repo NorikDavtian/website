@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!-- Hide the header by default using CSS class so that it can be displayed on scroll--><!DOCTYPE html>
 <!--[if IE 8] <html class="no-js lt-ie9"> ![endif]-->
 <!--[if gt IE 8] <!--> <html class="ie" lang="en"> <!-- ![endif]-->
 <head>
@@ -34,7 +35,7 @@
   <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-  <title>Dgraph: Fastest graph database in the market</title>
+  <title>Dgraph — Fastest Graph Database in the Market</title>
 
   <!-- fonts-->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,800,700,500" rel="stylesheet" type="text/css">
@@ -49,11 +50,11 @@
   <!--modernizr-->
   <script type="text/javascript" src="assets/js/modernizr.min.js"></script>
   <!--[if lt IE 9] <script src="assets/js/ie.min.js"></script> ![endif]-->
-
+  
 </head>
 <body class="homepage">
   <!-- SVG holder is included via svg-local-storage script-->
-  <!--[if lt IE 9]
+  <!--[if lt IE 9] 
   <div class="browsehappy"> <a href="#" class="browsehappy__dismiss">Dismiss</a>
   	<h2 class="browsehappy__title">Your browser is not currently supported</h2>
   	<p>But there’s an easy fix! This web site works on a wide range of browsers. Click one of the buttons below and follow the instructions.</p>
@@ -64,54 +65,131 @@
   		<li class="browsehappy__item"><a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank" class="button browsehappy__button">Download Internet Explorer</a></li>
   	</ul>
   </div> ![endif]
-
+  
   -->
-  <header id="page-header" class="page-header page-header--alternate">
+  <nav class="page-header__header hidden">
     <div class="container">
-      <div class="row">
-        <div class="col-12 col-desktop-4 hide-desktop">
-          <figure class="page-logo"><a href="index.html"><img src="assets/images/logo.svg" width="233" height="70" alt=""></a></figure>
+      <div class="page-header__content"><a href="/" class="page-header__logo-container"><img src="assets/images/logo-white.png" alt="dgraph-logo" class="page-header__logo"></a><a href="javascript:void(0)" title="Site Navigation" id="page-nav-button" class="page-nav-button">Menu</a>
+        <div class="page-header__actions">
+          <ul class="page-header__menu-list page-nav__list">
+            <li class="page-header__menu-item hidden-xs"><a href="https://github.com/dgraph-io/dgraph" target="_blank">
+                 
+                Code</a></li>
+            <li class="page-header__menu-item hidden-xs sub-menu-parent"><a href="#" class="page-intro__nav-link page-intro__nav-dropdown-trigger">Read</a>
+              <ul class="sub-menu">
+                <li><a href="https://docs.dgraph.io" target="_blank">Docs</a></li>
+                <li><a href="https://tour.dgraph.io" target="_blank">Tour</a></li>
+                <li><a href="https://open.dgraph.io" target="_blank">Blog</a></li>
+              </ul>
+            </li>
+            <li class="page-header__menu-item hidden-xs sub-menu-parent"><a href="#" class="page-intro__nav-link page-intro__nav-dropdown-trigger">Talk</a>
+              <ul class="sub-menu">
+                <li><a href="https://slack.dgraph.io" target="_blank">Slack</a></li>
+                <li><a href="https://discuss.dgraph.io" target="_blank">Forum</a></li>
+              </ul>
+            </li>
+            <li class="page-header__menu-item visible-xs-block"><a href="https://docs.dgraph.io" target="_blank">Docs</a></li>
+            <li class="page-header__menu-item visible-xs-block"><a href="https://open.dgraph.io" target="_blank">Blog</a></li>
+            <li class="page-header__menu-item visible-xs-block"><a href="https://discuss.dgraph.io" target="_blank">Forum</a></li>
+            <li class="page-header__menu-item visible-xs-block"><a href="https://slack.dgraph.io" target="_blank">Slack</a></li>
+            <li class="page-header__menu-item"><a href="https://open.dgraph.io" target="_blank">Install</a></li>
+          </ul>
+          <div class="gh-star-container hidden-sm hidden-xs"><a href="https://github.com/dgraph-io/dgraph" data-size="large" data-show-count="true" aria-label="Star dgraph-io/dgraph on GitHub" class="github-button">Star</a></div>
         </div>
-        <div class="col-12 col-desktop-8 push-desktop-4">
-          <nav class="page-nav">
-            <ul class="page-nav__list page-nav__list--alternate">
-              <li class="page-nav__item"><a href="https://docs.dgraph.io" title="Offical documentation for Dgraph." target="_blank" class="page-nav__link link-alias">Documentation</a></li>
-              <li class="page-nav__item"><a href="https://open.dgraph.io" title="Thoughts on usage of graph database." class="page-nav__link link-alias">Blog</a></li>
-              <li class="page-nav__item"><a href="https://discuss.dgraph.io" title="Head over to our Discourse community" target="_blank" class="page-nav__link link-alias">Discourse</a></li>
-              <li class="page-nav__item"><a href="https://slack.dgraph.io/" title="Head over to our Slack community" target="_blank" class="page-nav__link link-alias">Slack</a></li>
-              <li class="page-nav__item"><a href="https://docs.dgraph.io" title="Download Dgraph" target="_blank" class="button button--outline page-nav__link page-nav__link--button">Download</a></li>
-              <li class="page-nav__item"><a href="https://github.com/dgraph-io/dgraph" data-style="mega" data-count-href="/dgraph-io/dgraph/stargazers" data-count-api="/repos/dgraph-io/dgraph#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star dgraph-io/dgraph on GitHub" class="github-button">Star</a></li>
-            </ul>
-            <div class="github-star--mobile"><a href="https://github.com/dgraph-io/dgraph" data-style="mega" data-count-href="/dgraph-io/dgraph/stargazers" data-count-api="/repos/dgraph-io/dgraph#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star dgraph-io/dgraph on GitHub" class="github-button">Star</a></div>
-          </nav>
-        </div><a href="javascript:void(0)" title="Site Navigation" id="page-nav-button" class="button page-nav-button">Menu</a>
       </div>
     </div>
-  </header>
-  <!-- / page-header-->
+  </nav>
   <section class="page-intro page-intro--homepage">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-desktop-4 hide-mobile show-desktop">
-          <figure class="page-intro__figure page-intro__figure--logo"><a href="index.html"><img src="assets/images/logo.svg" alt="Dgraph logo – Fastest graph database in the market."></a></figure>
+    <div class="page-intro__main">
+      <div class="container">
+        <div class="row hidden-xs-down">
+          <div class="col-12">
+            <div class="page-intro__nav-container">
+              <ul class="page-intro__nav-list">
+                <li class="page-intro__nav-item"><a href="https://github.com/dgraph-io/dgraph" target="_blank" class="page-intro__nav-link">Code</a></li>
+                <li class="page-intro__nav-item sub-menu-parent"><a href="#" class="page-intro__nav-link page-intro__nav-dropdown-trigger">Read</a>
+                  <ul class="sub-menu">
+                    <li><a href="https://docs.dgraph.io" target="_blank">Docs</a></li>
+                    <li><a href="https://tour.dgraph.io" target="_blank">Tour</a></li>
+                    <li><a href="https://open.dgraph.io" target="_blank">Blog</a></li>
+                  </ul>
+                </li>
+                <li class="page-intro__nav-item sub-menu-parent"><a href="#" class="page-intro__nav-link page-intro__nav-dropdown-trigger">Talk</a>
+                  <ul class="sub-menu">
+                    <li><a href="https://slack.dgraph.io" target="_blank">Slack</a></li>
+                    <li><a href="https://discuss.dgraph.io" target="_blank">Forum</a></li>
+                  </ul>
+                </li>
+                <li class="page-intro__nav-item"><a href="https://docs.dgraph.io/get-started/" target="_blank" class="page-intro__nav-link">Install</a></li>
+                <li class="page-intro__nav-item">
+                  <div class="github-star-container"><a href="https://github.com/dgraph-io/dgraph" data-size="large" data-show-count="true" aria-label="Star dgraph-io/dgraph on GitHub" class="github-button">Star</a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-desktop-7">
-          <header class="page-intro__header">
-            <h1 class="page-intro__title page-intro__title--emphasized">Fastest graph database in the market.</h1>
-            <p class="page-intro__lead">Meet Dgraph &mdash;  an open source, scalable, distributed, highly available and fast graph database, designed from ground up to be run in production.</p>
-          </header>
+        <div class="row">
+          <div class="col-sm-6 col-md-5 offset-md-1 hidden-xs">
+            <div class="page-intro__intro-section"><img src="assets/images/homepage/diggy-shadow.png" class="diggy"></div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-5">
+            <div class="page-intro__intro-section"><img src="assets/images/logo-glow.png" class="page-intro__logo">
+              <h1 class="page-intro--homepage__title">Fastest graph database in the market.</h1>
+              <p class="page-intro__desc">Meet Dgraph —  an open source, scalable, distributed, highly available and fast graph database.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <!-- / page-intro-->
   <div class="page-content page-content--homepage">
-    <div class="demo__wrapper">
-      <div class="bolt-image__wrapper">
-        <div class="bolt-image bolt-image--top-front"></div>
-        <div class="bolt-image bolt-image--top-back"></div>
+    <div class="page-content__features-container">
+      <div class="container page-content__features-content">
+        <ul class="dg-features__list">
+          <li class="dg-features__item">
+            <div class="dg-features__figure"><img src="assets/images/homepage/feature-01.svg" alt="Image for low latency, high throughput feature" class="dg-features__image"></div>
+            <div class="dg-features__description">
+              <h4 class="dg-features__title">Low Latency, High Throughput</h4>
+              <p>Storage layer of Dgraph is designed for efficient retrieval, it offers low enough latency to be serving real time user queries, over terabytes of structured data</p>
+            </div>
+          </li>
+          <li class="dg-features__item">
+            <div class="dg-features__figure"><img src="assets/images/homepage/feature-02.svg" alt="Image for distributed and scalable feature" class="dg-features__image"></div>
+            <div class="dg-features__description">
+              <h4 class="dg-features__title">Distributed and Scalable</h4>
+              <p>Easily scale to multiple machines, or datacenters. Dgraph's sharded storage and query processing were specifically designed to minimize the number of network calls.</p>
+            </div>
+          </li>
+          <li class="dg-features__item">
+            <div class="dg-features__figure"><img src="assets/images/homepage/feature-03.svg" alt="Image for open source feature" class="dg-features__image"></div>
+            <div class="dg-features__description">
+              <h4 class="dg-features__title">Open Source</h4>
+              <p>Written entirely in Go, Dgraph is available under open-source license.</p>
+            </div>
+          </li>
+        </ul>
+        <!-- /.demo-features-->
       </div>
-      <!-- /.bolt-image__wrapper--top-->
+    </div>
+    <div class="dg-introduction">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe src="https://www.youtube.com/embed/cHXbYLNa0qQ" allowfullscreen=""></iframe>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6">
+            <div class="dg-introduction-desc">
+              <h3 class="heading">Distributed by design.</h3>
+              <p class="desc">Dgraph can easily scale to multiple machines, or datacenters. Its sharded storage and query processing were specifically designed to minimize the number of network calls.</p><a href="https://www.youtube.com/channel/UCghE41LR8nkKFlR3IFTRO4w/featured" target="_blank" class="btn btn-main btn-cta">Watch More <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="demo__wrapper hidden-xs hidden-sm">
       <div class="demo">
         <div class="container">
           <div class="row">
@@ -240,178 +318,112 @@
 
               </div>
               <!-- /.demo-console-->
-              <div class="dg-features">
-                <header class="section-header">
-                  <h3 class="section-header__title">Why use Dgraph?</h3>
-                </header>
-                <ul class="dg-features__list">
-                  <li class="dg-features__item">
-                    <div class="dg-features__figure"><img src="assets/images/homepage/feature-01.svg" alt="Image for low latency, high throughput feature" class="dg-features__image"></div>
-                    <div class="dg-features__description">
-                      <h4 class="dg-features__title">Low Latency, High Throughput</h4>
-                      <p>Storage layer of Dgraph is designed for efficient retrieval, it offers low enough latency to be serving real time user queries, over terabytes of structured data.</p>
-                    </div>
-                  </li>
-                  <li class="dg-features__item">
-                    <div class="dg-features__figure"><img src="assets/images/homepage/feature-02.svg" alt="Image for distributed and scalable feature" class="dg-features__image"></div>
-                    <div class="dg-features__description">
-                      <h4 class="dg-features__title">Distributed and Scalable</h4>
-                      <p>Easily scale to multiple machines, or datacenters. Dgraph's sharded storage and query processing were specifically designed to minimize the number of network calls.</p>
-                    </div>
-                  </li>
-                  <li class="dg-features__item">
-                    <div class="dg-features__figure"><img src="assets/images/homepage/feature-03.svg" alt="Image for open source feature" class="dg-features__image"></div>
-                    <div class="dg-features__description">
-                      <h4 class="dg-features__title">Open Source</h4>
-                      <p>Written entirely in Go, Dgraph is available under open-source license.</p>
-                    </div>
-                  </li>
-                </ul>
-                <!-- /.demo-features-->
-              </div>
             </div>
           </div>
         </div>
       </div>
       <!-- /.demo-->
-      <div class="bolt-image__wrapper">
-        <div class="bolt-image bolt-image--bottom-front"></div>
-        <div class="bolt-image bolt-image--bottom-back"></div>
-      </div>
-      <!-- /.bolt-image__wrapper--bottom-->
     </div>
     <!-- /.demo__wrapper-->
-    <div class="usage">
+    <div class="dg-testimonials bg-dim">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <header class="section-header">
-              <h2 class="section-header__title">Use Cases</h2>
-            </header>
-            <div class="usage-carousel">
-              <nav class="usage-carousel__nav">
-                <div class="usage-carousel__window"></div>
-                <div class="usage-carousel__controls"><a href="javascript:;" id="previous-slide" class="usage-carousel__control-up">
-                    <svg class="icon">
-                      <use xlink:href="#icon-chevron-up" xmlns:xlink="http://www.w3.org/1999/	xlink"></use>
-                    </svg></a><a href="javascript:;" id="next-slide" class="usage-carousel__control-down js-usage-carousel-down">
-                    <svg class="icon">
-                      <use xlink:href="#icon-chevron-down" xmlns:xlink="http://www.w3.org/1999/	xlink"></use>
-                    </svg></a></div>
-                <ul class="usage-carousel__list">
-                  <li class="usage-carousel__item">Movie Directory</li>
-                  <li class="usage-carousel__item">Recommendation Engine</li>
-                  <li class="usage-carousel__item is-active">Social Network</li>
-                </ul>
-              </nav>
-            </div>
-            <div class="result__list">
-              <div class="result__item"><img src="assets/images/homepage/slide-01.png" alt="Use case scenario for movies."></div>
-              <div class="result__item"><img src="assets/images/homepage/slide-02.png" alt="Use case scenario for recommendation engine."></div>
-              <div class="result__item is-active"><img src="assets/images/homepage/slide-03.png" alt="Use case scenario for book club."></div>
-            </div>
+            <h2 class="section-header dg-testimonials__header">What Users Are Saying</h2>
+            <div class="testimonial-container"><span class="testimonial-content"></span></div>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.use-case-->
-    <div class="media">
+    <div class="press">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <header class="section-header">
-              <h2 class="section-header__title">Dgraph in the News</h2>
-              <p class="section-header__lead"></p>
-            </header>
-            <!-- /.media-inline-->
-            <div class="media-logo">
-              <div class="media-logo__row">
-                <div class="media-logo__item"><a href="" class="hn"><img src="assets/images/in-news/hn.jpg" alt="Hacker News"></a></div>
-                <div class="media-logo__item"><a href="http://www.afr.com/technology/cannonbrookes-blackbird-bain-back-new-migrants-graph-startup-20160517-goxglw" target="_blank"><img src="assets/images/in-news/fr.jpg" alt="Financial Review"></a></div>
-                <div class="media-logo__item"><a href="http://www.startupsmart.com.au/advice/funding/two-failed-startups-later-ex-google-employee-secures-1-45-million-in-funding-and-backing-of-atlassians-co-founder/" target="_blank"><img src="assets/images/in-news/ss.jpg" alt="Startup Smart"></a></div>
+            <h2 class="section-header">Dgraph in the News</h2>
+            <!-- /.press-inline-->
+            <div class="press-logo">
+              <div class="press-logo__row">
+                <div class="press-logo__item"><a href="https://hn.algolia.com/?query=dgraph&amp;sort=byPopularity&amp;prefix&amp;page=0&amp;dateRange=all&amp;type=story" target="_blank" class="hn"><img src="assets/images/in-news/hn-alt.png" alt="Hacker News"></a></div>
+                <div class="press-logo__item"><a href="http://www.afr.com/technology/cannonbrookes-blackbird-bain-back-new-migrants-graph-startup-20160517-goxglw" target="_blank"><img src="assets/images/in-news/fr.jpg" alt="Financial Review"></a></div>
+                <div class="press-logo__item"><a href="http://www.startupsmart.com.au/advice/funding/two-failed-startups-later-ex-google-employee-secures-1-45-million-in-funding-and-backing-of-atlassians-co-founder/" target="_blank"><img src="assets/images/in-news/ss.jpg" alt="Startup Smart"></a></div>
               </div>
             </div>
             <div class="hn-list">
-              <ul class="media__list">
-                <li class="media__item"><a href="https://news.ycombinator.com/item?id=11322444" target="_blank" class="media__link">DGraph – Scalable, Distributed, Low-Latency, High-Throughput Graph Database</a></li>
-                <li class="media__item"><a href="https://news.ycombinator.com/item?id=11934087" target="_blank" class="media__link">Dgraph is a next generation graph database with GraphQL as the query language</a></li>
-                <li class="media__item"><a href="https://news.ycombinator.com/		item?id=11944969" target="_blank" class="media__link">Scaling nodes in a Dgraph cluster</a></li>
+              <ul class="press__list">
+                <li class="press__item"><a href="https://news.ycombinator.com/item?id=11322444" target="_blank" class="press__link">DGraph – Scalable, Distributed, Low-Latency, High-Throughput Graph Database</a></li>
+                <li class="press__item"><a href="https://news.ycombinator.com/item?id=11934087" target="_blank" class="press__link">Dgraph is a next generation graph database with GraphQL as the query language</a></li>
+                <li class="press__item"><a href="https://news.ycombinator.com/ item?id=11944969" target="_blank" class="press__link">Scaling nodes in a Dgraph cluster</a></li>
               </ul>
             </div>
-            <!-- /.media-logo-->
+            <!-- /.press-logo-->
           </div>
         </div>
       </div>
     </div>
-    <!-- /.media-->
-    <div class="cta-wrapper cta-wrapper--homepage">
+    <!-- /.press-->
+    <div class="blog-articles is-loading bg-dim">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <div class="cta">
-              <div class="cta__box">
-                <h4 class="cta__title">Download Dgraph</h4>
-                <p>Install Dgraph binaries quickly in a single step using this command if you are on Linux/Mac: <code> curl https://get.dgraph.io | bash</code> For other methods of installing Dgraph check out our documentation.</p><a href="https://docs.dgraph.io" target="_blank" class="button button--white button--jumbo cta__button">Official Documentation</a>
+            <h2 class="section-header"><a href="https://open.dgraph.io" target="_blank" class="blog-link">Dgraph Blog</a></h2>
+            <div class="blog-articles-container">
+              <div class="blog-article blog-article-0">
+                <div class="meta"><a href="#" target="_blank" class="title link"></a>
+                  <div class="desc"></div>
+                </div>
+                <div class="action"><a href="#" target="_blank" class="link">
+                     
+                    Read more<i class="fa fa-angle-double-right"></i></a></div>
               </div>
-              <div class="cta__more">
-                <h4 class="cta__title">More information about Dgraph</h4>
-                <ul class="cta__more-list">
-                  <li class="cta__more-item"><a href="https://github.com/dgraph-io/dgraph/" target="_blank" class="cta__more-link cta__more-link--github link-alias">GitHub</a></li>
-                  <li class="cta__more-item"><a href="https://discuss.dgraph.io" target="_blank" class="cta__more-link cta__more-link--discourse link-alias">Discourse</a></li>
-                  <li class="cta__more-item"><a href="https://slack.dgraph.io/" target="_blank" class="cta__more-link cta__more-link--slack link-alias">Slack</a></li>
-                  <li class="cta__more-item"><a href="https://open.dgraph.io" target="_blank" class="cta__more-link cta__more-link--blog link-alias">Blog</a></li>
-                  <li class="cta__more-item"><a href="https://docs.dgraph.io" target="_blank" class="cta__more-link cta__more-link--wiki link-alias">Documentation</a></li>
-                </ul>
+              <div class="blog-article blog-article-1">
+                <div class="meta"><a href="#" target="_blank" class="title link"></a>
+                  <div class="desc"></div>
+                </div>
+                <div class="action"><a href="#" target="_blank" class="link">
+                     
+                    Read more<i class="fa fa-angle-double-right"></i></a></div>
+              </div>
+              <div class="blog-article blog-article-2">
+                <div class="meta"><a href="#" target="_blank" class="title link"></a>
+                  <div class="desc"></div>
+                </div>
+                <div class="action"><a href="#" target="_blank" class="link">
+                     
+                    Read more<i class="fa fa-angle-double-right"></i></a></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.cta-->
   </div>
   <div class="page-footer__wrapper">
     <footer id="page-footer" class="page-footer">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-tablet-3">
-            <figure class="page-logo-footer"><a href="index.html"><img src="assets/images/logo.svg" width="140" height="42" alt="Dgraph Logo"></a></figure>
-          </div>
-          <div class="col-4 col-tablet-2">
+          <div class="col-12">
             <nav class="page-footer-nav">
-              <h6 class="page-footer-nav__title">Company</h6>
               <ul class="page-footer-nav__list">
                 <li class="page-footer-nav__item"><a href="about.html" title="Learn more about us" class="page-footer-nav__link">About</a></li>
                 <li class="page-footer-nav__item"><a href="careers.html" title="See open positions" class="page-footer-nav__link">Careers</a></li>
                 <li class="page-footer-nav__item"><a href="contact.html" title="How can you reach us" class="page-footer-nav__link">Contact</a></li>
-                <li class="page-footer-nav__item"><a href="https://docs.dgraph.io" title="Download Dgraph." target="_blank" class="page-footer-nav__link page-footer-nav__link--download link-alias">Download</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-4 col-tablet-2">
-            <nav class="page-footer-nav">
-              <h6 class="page-footer-nav__title">Community</h6>
-              <ul class="page-footer-nav__list">
-                <li class="page-footer-nav__item"><a href="https://open.dgraph.io" title="Thoughts on usage of graph database." target="_blank" class="page-footer-nav__link link-alias">Blog</a></li>
-                <li class="page-footer-nav__item"><a href="https://docs.dgraph.io" title="Discuss about Dgraph with us." target="_blank" class="page-footer-nav__link link-alias">Documentation</a></li>
-                <li class="page-footer-nav__item"><a href="https://github.com/dgraph-io/dgraph" alt="Dgraph on Github" title="We are on GitHub, check it out." target="_blank" class="page-footer-nav__link link-alias">GitHub</a></li>
-                <li class="page-footer-nav__item"><a href="https://discuss.dgraph.io/" title="Discuss about Dgraph with us." target="_blank" class="page-footer-nav__link link-alias">Discuss</a></li>
-                <li class="page-footer-nav__item"><a href="https://slack.dgraph.io/" title="Slack about Dgraph with us." target="_blank" class="page-footer-nav__link link-alias">Slack</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-4 col-tablet-2">
-            <nav class="page-footer-nav">
-              <h6 class="page-footer-nav__title">Connect</h6>
-              <ul class="page-footer-nav__list">
-                <li class="page-footer-nav__item"><a href="https://twitter.com/dgraphlabs" title="Follow us on Twitter" target="_blank" class="page-footer-nav__link link-alias">Twitter</a></li>
-                <li class="page-footer-nav__item"><a href="https://angel.co/dgraph-labs" title="Dgraph on Angel List" target="_blank" class="page-footer-nav__link link-alias">Angel List</a></li>
+                <li class="page-footer-nav__item"><a href="https://docs.dgraph.io" title="Download Dgraph." target="_blank" class="page-footer-nav__link page-footer-nav__link--download">Download</a></li>
               </ul>
             </nav>
           </div>
         </div>
         <div class="row">
-          <div class="col-12"><span class="imprint__copyrights">Copyright &copy; 2016 Dgraph Labs, Inc.</span></div>
+          <div class="col-12">
+            <div class="page-footer__social">
+              <ul class="page-footer__social-link-list">
+                <li class="page-footer__social-link-item"><a href="https://twitter.com/dgraphlabs" data-show-count="false" class="twitter-follow-button">Follow @dgraphlabs</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12"><span class="imprint__copyrights">Copyright &copy; 2017 Dgraph Labs, Inc.</span></div>
         </div>
       </div>
     </footer>
@@ -420,11 +432,14 @@
   <!-- / page-footer__wrapper-->
 
   <!-- js-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/js/jquery-2.1.0.min.js"><\/script>')</script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
 
   <script type="text/javascript">
-    //- // Cashing SVG Sprite in localStorage
+    //- // Cashing SVG Sprite in localStorage 
     $(document).ready(function(){;(function(window,document)
     {'use strict';
     	// Change revision of svg icons every time you add new icons
@@ -443,12 +458,13 @@
     {data=request.responseText;insert();if(isLocalStorage)
     {localStorage.setItem('inlineSVGdata',data);localStorage.setItem('inlineSVGrev',revision);}}};request.send();}
     catch(e){}}(window,document));});
-
+    
   </script>
   <!-- Minified script-->
   <script type="text/javascript" src="assets/js/script.min.js?v=20170105"></script>
   <!-- GitHub star button-->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   <!-- JavaScript files for Demo section-->
   <script src="assets/js/demo-section/angular/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/ace.js"></script>
@@ -456,7 +472,7 @@
   <script src="assets/js/demo-section/angular-ui-ace/ui-ace.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
   <script src="assets/js/demo-section/typeahead.min.js"></script>
-  <script src="assets/js/demo-section/Unminifed/app.js?v=20170725"></script>
+  <script src="assets/js/demo-section/Unminifed/app.js?v=20170504"></script>
   <script type="text/javascript" src="assets/js/demo-section/jquery.appear.min.js"></script>
   <script type="text/javascript" src="https://cdn.ravenjs.com/3.15.0/raven.min.js"></script>
   <script>Raven.config("https://b8060dd457e94b42ace70a3a899d0175@sentry.io/166298").install();</script>

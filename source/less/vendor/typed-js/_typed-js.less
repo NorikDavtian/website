@@ -1,0 +1,30 @@
+.typed-cursor {
+  opacity: 1;
+  animation: typedjsBlink 0.3s infinite;
+  -webkit-animation: typedjsBlink 0.3s infinite;
+  animation: typedjsBlink 0.3s infinite;
+
+  // custom
+  background-color: #292929;
+  width: 10px;
+  display: inline-block;
+  height: 23px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+@keyframes typedjsBlink {
+  50% {
+    opacity: 0.0;
+  }
+}
+@-webkit-keyframes typedjsBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

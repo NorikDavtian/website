@@ -3,142 +3,172 @@
    =========================================== */
 
 .page-header {
-	position: relative;
-	z-index: 20;
-	
-	&--alternate {
-		margin-top: 0;
-		@media screen and (min-width: @desktop-breakpoint) {
-			margin-top: 100px;
-		}
-	}
-}
+  border-bottom: 1px solid gray;
 
-.page-logo {
-	.hide-text();
-	padding-top: 30px;
-	line-height: 1;
-	display: inline-block;
-	position: relative;
-	z-index: 22;
-	@media screen and (max-width: @desktop-breakpoint) {
-		padding: 15px 0;
-	}
-			
-	img {
-		display: block;
-		max-width: 150px;
-	}
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 99;
+    opacity: 0.98;
+    // background: linear-gradient(to bottom right, #ff6e2f, #900000);
+    background: linear-gradient(to bottom right, #ec662c, #ad3119);
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &__logo-container {
+    padding: 12px 0;
+    display: inline-block;
+  }
+
+  &__logo {
+    width: 115px;
+  }
+
+  &__content {
+    height: 60px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // flex-direction: row;
+  }
+
+  &__actions {
+    height: 100%;
+    position: relative;
+
+    @media screen and (min-width: @desktop-breakpoint) {
+      padding-right: 171px;
+    }
+    @media screen and (min-width: @tablet-breakpoint) {
+      float: right;
+    }
+
+    .gh-star-container {
+      position: absolute;
+      top: 16px;
+      right: 12px;
+    }
+  }
+
+  &__menu-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    height: 100%;
+    display: inline-block;
+
+    .sub-menu {
+      background: white;
+      border: 1px solid #dedddc;
+      border-top: none;
+
+      li {
+        border-bottom: 1px dotted #dedddc;
+      }
+
+      a {
+        color: black;
+
+        &:hover {
+          color: #868686;
+        }
+      }
+    }
+  }
+
+  &__menu-item {
+    display: block;
+    margin-bottom: 0;
+    background: white;
+
+    @media screen and (min-width: @tablet-breakpoint) {
+      display: inline-block;
+      height: 100%;
+      border-bottom: none;
+      background: none;
+    }
+
+    a {
+      display: block;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-align: center;
+      padding: 15px 0;
+      color: black;
+
+      @media screen and (min-width: @tablet-breakpoint) {
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 13.5px;
+        font-size: 15.5px;
+        font-weight: 500;
+        color: white;
+      }
+    }
+
+    a:hover {
+      color: @color-jaffa;
+    }
+  }
+
+  &__menu-item-github {
+    height: auto;
+    margin: 0 30px;
+    position: relative;
+
+    iframe {
+      position: absolute;
+      top: -20px;
+    }
+  }
+
+  &__cta {
+    margin-left: 22px;
+
+    @media screen and (max-width: @tablet-breakpoint) {
+      margin-top: 10px;
+    }
+  }
 }
 
 .page-nav {
-	.clearfix();
+  .clearfix();
 
-	&__list {
-		.clearfix();
-		list-style: none;
-		margin: 0;
-		padding: 47px 0 0;
-		float: right;
-		@media screen and (max-width: @desktop-breakpoint) {
-			text-align: center;
-			padding: 130px 0 15px;
-			background: fade(@color-white, 90%);
-			display: none;
-			float: none;
-			position: absolute;
-			top: -140px;
-			left: -200px;
-			right: -200px;
-			z-index: 21;
-		}
+  &__list {
+    .clearfix();
+    list-style: none;
+    margin: 0;
 
-		&--alternate {
-			float: none;
-			@media screen and (min-width: @desktop-breakpoint) {
-				padding: 0;
-			}
-		}
-
-
-		iframe {
-			position: relative;
-			top: 5px;
-			@media screen and (max-width: @desktop-breakpoint) {
-				top: 0;
-				margin: 15px 0 0;
-			}
-		}
-	}
-
-	&__item {
-		margin: 0;
-		padding: 0 10px;
-		display: block;
-		line-height: 1;
-		float: left;
-		&:first-child {
-			padding-left: 0;
-		}
-		&:last-child {
-			padding-right: 0;
-		}
-		@media screen and (max-width: @desktop-breakpoint) {
-			border-top: 1px dotted #dedddc;
-			float: none;
-		}
-	}
-
-	&__link {
-		.font-size(14);
-		font-weight: @font-weight-extra-bold;
-		text-transform: uppercase;
-		letter-spacing: .035em;
-		color: @color-coal;
-		padding: 10px 0;
-		display: block;
-		@media screen and (max-width: @desktop-breakpoint) {
-			padding: 20px 0;
-		}
-
-		&--button {
-			padding-left: 15px;
-			padding-right: 15px;
-
-			@media screen and (max-width: @desktop-breakpoint) {
-				&.button {
-					border: none;
-				}
-			}
-					
-		}
-				
-	}
-}
-
-.github-star--mobile {
-	@media screen and (min-width: @desktop-breakpoint) {
-		display: none;
-	}
-			
-	text-align: right;
-}
-
-.is-visible {
-	display: block !important;
+    @media screen and (max-width: @tablet-breakpoint) {
+      display: none;
+      position: absolute;
+      left: -20px;
+      right: -20px;
+    }
+  }
 }
 
 .page-nav-button {
-	.font-size(13);
-	letter-spacing: .05em;
-	text-transform: uppercase;
-	font-weight: @font-weight-bold;
-	position: absolute;
-	z-index: 22;
-	right: 15px;
-	top: 28px;
-	background-color: @color-text;
-	@media screen and (min-width: @desktop-breakpoint) {
-		display: none;
-	}
+  position: absolute;
+  right: 11px;
+  font-weight: 600;
+  padding: 20px 17px;
+  color: white;
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: white;
+  }
+
+  @media screen and (min-width: @tablet-breakpoint) {
+    display: none;
+  }
 }

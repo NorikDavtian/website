@@ -2,13 +2,13 @@ extends pagewrapper
 
 //- Override config.jade file
 append page-config
-	- var PageTitle = 'Dgraph: Fastest graph database in the market'
+	- var PageTitle = 'Dgraph — Fastest Graph Database in the Market'
 	- var PageClass = 'homepage'
 	- var PageIntroClass = 'homepage'
 	- var PageContentClass = 'homepage'
-	- var MainHeader = false
-	- var AlternateHeader = true
-
+	// Hide the header by default using CSS class so that it can be displayed on scroll
+	- var SoftHideHeader = true
+	
 //- Begin
 block additional-styles
 	// CSS styles for Demo section
@@ -26,162 +26,187 @@ block partials
 	//- include partials/overlays/overlay
 
 block page-intro
-	.container
-		.row
-			.col-12.col-desktop-4.hide-mobile.show-desktop
-				figure.page-intro__figure.page-intro__figure--logo
-					a(href="index.html")
-						img(src="assets/images/logo.svg", alt="Dgraph logo – Fastest graph database in the market.")
-			.col-12.col-desktop-7
-				header.page-intro__header
-					h1.page-intro__title.page-intro__title--emphasized Fastest graph database in the market.
-					p.page-intro__lead Meet Dgraph &mdash;  an open source, scalable, distributed, highly available and fast graph database, designed from ground up to be run in production.
+	.page-intro__main
+	
+		.container
+			.row.hidden-xs-down
+				.col-12
+					.page-intro__nav-container
+						//- .github-star-container
+						//- 	a.github-button(href='https://github.com/dgraph-io/dgraph', data-size='large', data-show-count='true', aria-label='Star dgraph-io/dgraph on GitHub') Star
+
+						ul.page-intro__nav-list
+							li.page-intro__nav-item
+								a.page-intro__nav-link(href="https://github.com/dgraph-io/dgraph" target="_blank") Code
+							li.page-intro__nav-item.sub-menu-parent
+								a.page-intro__nav-link.page-intro__nav-dropdown-trigger(href='#') Read
+								ul.sub-menu
+									li
+										a(href="https://docs.dgraph.io" target="_blank") Docs
+									li
+										a(href="https://tour.dgraph.io" target="_blank") Tour
+									li
+										a(href="https://open.dgraph.io" target="_blank") Blog
+							li.page-intro__nav-item.sub-menu-parent
+								a.page-intro__nav-link.page-intro__nav-dropdown-trigger(href='#') Talk
+								ul.sub-menu
+									li
+										a(href="https://slack.dgraph.io" target="_blank") Slack
+									li
+										a(href="https://discuss.dgraph.io" target="_blank") Forum
+							li.page-intro__nav-item
+								a.page-intro__nav-link(href="https://docs.dgraph.io/get-started/" target="_blank") Install
+							li.page-intro__nav-item
+								.github-star-container
+									a.github-button(href='https://github.com/dgraph-io/dgraph', data-size='large', data-show-count='true', aria-label='Star dgraph-io/dgraph on GitHub') Star
+
+
+			.row
+				.col-sm-6.col-md-5.offset-md-1.hidden-xs
+					.page-intro__intro-section
+						img.diggy(src="assets/images/homepage/diggy-shadow.png")
+				.col-12.col-sm-6.col-md-5
+					.page-intro__intro-section
+						img.page-intro__logo(src="assets/images/logo-glow.png")
+						
+						h1.page-intro--homepage__title
+							| Fastest graph database in the market.
+							
+						p.page-intro__desc
+							| Meet Dgraph —  an open source, scalable, distributed, highly available and fast graph database.
 
 block page-content
-	.demo__wrapper
-		.bolt-image__wrapper
-			.bolt-image.bolt-image--top-front
-			.bolt-image.bolt-image--top-back
-		// /.bolt-image__wrapper--top
 
+	.page-content__features-container
+		.container.page-content__features-content
+			ul.dg-features__list
+				li.dg-features__item
+					.dg-features__figure
+						img(src="assets/images/homepage/feature-01.svg", alt="Image for low latency, high throughput feature").dg-features__image
+					.dg-features__description
+						h4.dg-features__title Low Latency, High Throughput
+						p Storage layer of Dgraph is designed for efficient retrieval, it offers low enough latency to be serving real time user queries, over terabytes of structured data
+				li.dg-features__item
+					.dg-features__figure
+						img(src="assets/images/homepage/feature-02.svg", alt="Image for distributed and scalable feature").dg-features__image
+					.dg-features__description
+						h4.dg-features__title Distributed and Scalable
+						p Easily scale to multiple machines, or datacenters. Dgraph's sharded storage and query processing were specifically designed to minimize the number of network calls.
+				li.dg-features__item
+					.dg-features__figure
+						img(src="assets/images/homepage/feature-03.svg", alt="Image for open source feature").dg-features__image
+					.dg-features__description
+						h4.dg-features__title Open Source
+						p Written entirely in Go, Dgraph is available under open-source license.
+			// /.demo-features
+
+	.dg-introduction
+		.container
+			.row
+				.col-12.col-sm-12.col-md-6
+					.embed-responsive.embed-responsive-16by9
+						iframe(src='https://www.youtube.com/embed/cHXbYLNa0qQ', allowfullscreen='')
+				.col-12.col-sm-12.col-md-6
+					.dg-introduction-desc
+						h3.heading
+							| Distributed by design.
+						p.desc
+							| Dgraph can easily scale to multiple machines, or datacenters. Its sharded storage and query processing were specifically designed to minimize the number of network calls.
+							
+						a.btn.btn-main.btn-cta(href="https://www.youtube.com/channel/UCghE41LR8nkKFlR3IFTRO4w/featured" target="_blank")
+							| Watch More 
+							i.fa.fa-arrow-right
+
+	
+	.demo__wrapper.hidden-xs.hidden-sm
 		.demo
 			.container
 				.row
 					.col-12
 						header.section-header
 							h2.section-header__title Distributed joins are a cakewalk
-							p.section-header__lead Dgraph can run complex distributed queries involving filters, string matching, pagination, sorting and geolocations blazingly fast.
 
+							p.section-header__lead Dgraph can run complex distributed queries involving filters, string matching, pagination, sorting and geolocations blazingly fast.
+	
 						.demo-console
 							header.demo-console__header
 								h5.demo-console__title Play with 21M facts from <a href="https://developers.google.com/freebase/" target="_blank">Freebase Film Data</a> loaded up on demo Dgraph instance, via <a href="https://docs.dgraph.io/master/query-language/" target="_blank">GraphQL+-</a> in real time.
-
+	
 							include partials/demo-section/demo.html
-
+	
 						// /.demo-console
-
-						.dg-features
-							header.section-header
-								h3.section-header__title Why use Dgraph?
-
-							ul.dg-features__list
-								li.dg-features__item
-									.dg-features__figure
-										img(src="assets/images/homepage/feature-01.svg", alt="Image for low latency, high throughput feature").dg-features__image
-									.dg-features__description
-										h4.dg-features__title Low Latency, High Throughput
-										p Storage layer of Dgraph is designed for efficient retrieval, it offers low enough latency to be serving real time user queries, over terabytes of structured data.
-								li.dg-features__item
-									.dg-features__figure
-										img(src="assets/images/homepage/feature-02.svg", alt="Image for distributed and scalable feature").dg-features__image
-									.dg-features__description
-										h4.dg-features__title Distributed and Scalable
-										p Easily scale to multiple machines, or datacenters. Dgraph's sharded storage and query processing were specifically designed to minimize the number of network calls.
-								li.dg-features__item
-									.dg-features__figure
-										img(src="assets/images/homepage/feature-03.svg", alt="Image for open source feature").dg-features__image
-									.dg-features__description
-										h4.dg-features__title Open Source
-										p Written entirely in Go, Dgraph is available under open-source license.
-							// /.demo-features
-
 		// /.demo
-
-		.bolt-image__wrapper
-			.bolt-image.bolt-image--bottom-front
-			.bolt-image.bolt-image--bottom-back
-		// /.bolt-image__wrapper--bottom
-
 	// /.demo__wrapper
-	.usage
+	
+	
+	.dg-testimonials.bg-dim
 		.container
 			.row
 				.col-12
-					header.section-header
-						h2.section-header__title Use Cases
+					h2.section-header.dg-testimonials__header What Users Are Saying
 
-					.usage-carousel
-						nav.usage-carousel__nav
-							.usage-carousel__window
+					.testimonial-container
+						span.testimonial-content
 
-							.usage-carousel__controls
-								a(href="javascript:;")#previous-slide.usage-carousel__control-up
-									svg.icon
-										use(xlink:href="#icon-chevron-up" xmlns:xlink="http://www.w3.org/1999/	xlink")
-
-								a(href="javascript:;")#next-slide.usage-carousel__control-down.js-usage-carousel-down
-									svg.icon
-										use(xlink:href="#icon-chevron-down" xmlns:xlink="http://www.w3.org/1999/	xlink")
-
-							ul.usage-carousel__list
-								li.usage-carousel__item Movie Directory
-								li.usage-carousel__item Recommendation Engine
-								li.usage-carousel__item.is-active Social Network
-
-					.result__list
-						.result__item
-							img(src="assets/images/homepage/slide-01.png", alt="Use case scenario for movies.")
-						.result__item
-							img(src="assets/images/homepage/slide-02.png", alt="Use case scenario for recommendation engine.")
-						.result__item.is-active
-							img(src="assets/images/homepage/slide-03.png", alt="Use case scenario for book club.")
-	// /.use-case
-
-	.media
+	.press
 		.container
 			.row
 				.col-12
-					header.section-header
-						h2.section-header__title Dgraph in the News
-						p.section-header__lead
-
-					// /.media-inline
-					.media-logo
-						.media-logo__row
-							.media-logo__item
-								a.hn(href="")
-									img(src="assets/images/in-news/hn.jpg", alt="Hacker News")
-							.media-logo__item
+					h2.section-header Dgraph in the News
+					// /.press-inline
+					.press-logo
+						.press-logo__row
+							.press-logo__item
+								a.hn(href="https://hn.algolia.com/?query=dgraph&sort=byPopularity&prefix&page=0&dateRange=all&type=story" target="_blank")
+									img(src="assets/images/in-news/hn-alt.png", alt="Hacker News")
+							.press-logo__item
 								a(href="http://www.afr.com/technology/cannonbrookes-blackbird-bain-back-new-migrants-graph-startup-20160517-goxglw" target="_blank")
 									img(src="assets/images/in-news/fr.jpg", alt="Financial Review")
-							.media-logo__item
+							.press-logo__item
 								a(href="http://www.startupsmart.com.au/advice/funding/two-failed-startups-later-ex-google-employee-secures-1-45-million-in-funding-and-backing-of-atlassians-co-founder/" target="_blank")
 									img(src="assets/images/in-news/ss.jpg", alt="Startup Smart")
 					div.hn-list
-						ul.media__list
-							li.media__item: a(href="https://news.ycombinator.com/item?id=11322444" target="_blank").media__link DGraph – Scalable, Distributed, Low-Latency, High-Throughput Graph Database
-							li.media__item: a(href="https://news.ycombinator.com/item?id=11934087" target="_blank").media__link Dgraph is a next generation graph database with GraphQL as the query language
-							li.media__item: a(href="https://news.ycombinator.com/		item?id=11944969" target="_blank").media__link Scaling nodes in a Dgraph cluster
-					// /.media-logo
+						ul.press__list
+							li.press__item: a(href="https://news.ycombinator.com/item?id=11322444" target="_blank").press__link DGraph – Scalable, Distributed, Low-Latency, High-Throughput Graph Database
+							li.press__item: a(href="https://news.ycombinator.com/item?id=11934087" target="_blank").press__link Dgraph is a next generation graph database with GraphQL as the query language
+							li.press__item: a(href="https://news.ycombinator.com/ item?id=11944969" target="_blank").press__link Scaling nodes in a Dgraph cluster
+					// /.press-logo
+	// /.press
 
-	// /.media
-
-	.cta-wrapper.cta-wrapper--homepage
+	.blog-articles.is-loading.bg-dim
 		.container
 			.row
 				.col-12
-					.cta
-						.cta__box
-							h4.cta__title Download Dgraph
-							p Install Dgraph binaries quickly in a single step using this command if you are on Linux/Mac: <code> curl https://get.dgraph.io | bash</code> For other methods of installing Dgraph check out our documentation.
+					h2.section-header
+						a(href="https://open.dgraph.io", target="_blank").blog-link Dgraph Blog
 
-							a(href="https://docs.dgraph.io" target="_blank").button.button--white.button--jumbo.cta__button Official Documentation
-
-						.cta__more
-							h4.cta__title More information about Dgraph
-							ul.cta__more-list
-								li.cta__more-item
-									a(href="https://github.com/dgraph-io/dgraph/" target="_blank").cta__more-link.cta__more-link--github.link-alias GitHub
-								li.cta__more-item
-									a(href="https://discuss.dgraph.io" target="_blank").cta__more-link.cta__more-link--discourse.link-alias Discourse
-								li.cta__more-item
-									a(href="https://slack.dgraph.io/" target="_blank").cta__more-link.cta__more-link--slack.link-alias Slack
-								li.cta__more-item
-									a(href="https://open.dgraph.io" target="_blank").cta__more-link.cta__more-link--blog.link-alias Blog
-								li.cta__more-item
-									a(href="https://docs.dgraph.io" target="_blank").cta__more-link.cta__more-link--wiki.link-alias Documentation
-
-	// /.cta
+					.blog-articles-container
+						.blog-article.blog-article-0
+							.meta
+								a.title.link(href="#" target="_blank")
+								.desc
+							.action
+								a.link(href="#" target="_blank") 
+									| Read more
+									i.fa.fa-angle-double-right
+							
+						.blog-article.blog-article-1
+							.meta
+								a.title.link(href="#" target="_blank")
+								.desc
+							.action
+								a.link(href="#" target="_blank") 
+									| Read more
+									i.fa.fa-angle-double-right
+							
+						.blog-article.blog-article-2
+							.meta
+								a.title.link(href="#" target="_blank")
+								.desc
+							.action
+								a.link(href="#" target="_blank") 
+									| Read more
+									i.fa.fa-angle-double-right
 
 block additional-scripts
 	// JavaScript files for Demo section

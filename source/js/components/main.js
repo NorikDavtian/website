@@ -1,232 +1,251 @@
-$(document).ready(function() {
+// debounce limits the amount of function invocation by spacing out the calls
+// by at least `wait` ms.
+function debounce(func, wait, immediate) {
+  var timeout;
 
+  return function() {
+    var context = this,
+      args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
 
-    // ===========================================================================
-    //
-    // Notification banner for IE lt 9
-    var ieNotification = $('.browsehappy');
-    $('.browsehappy__dismiss').click(function() {
-        ieNotification.remove();
-    });
-
-
-    // ===========================================================================
-    //
-    // SVG Fallback for older browsers
-
-    if (!Modernizr.svg) {
-        $('img[src$=".svg"]').each(function() {
-            //Replace 'image.svg' with 'image.png'.
-            $(this).attr('src', $(this).attr('src').replace('.svg', '.png'));
-        });
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) {
+      func.apply(context, args);
     }
+  };
+}
 
+// stripHTML strips HTML
+function stripHTML(rawString) {
+  var div = document.createElement("div");
+  div.innerHTML = rawString;
 
-    // ===========================================================================
-    //
-    // Show menu navigation on smaller screen resolutions
+  return div.textContent || div.innerText || "";
+}
 
-    var menu = $('.page-nav__list');
+// excerpt creates an excerpt from the string, given max length
+function excerpt(str, maxLen) {
+  if (str.length <= maxLen) {
+    return str;
+  }
 
-    $('#page-nav-button').click(function() {
-        menu.slideToggle(200);
-    });
+  return str.substring(0, maxLen) + "...";
+}
 
-    $(window).on('resize', function() {
-        if (!jQuery('#page-nav-button').is(':visible') && !menu.is(':visible')) {
-            menu.css({ 'display': '' });
-        }
-    });
-
-
-
-    // ===========================================================================
-    //
-    // Image panning
-    // Homepage intro section
-
-    function screenSize() {
-        if ($(window).width() >= 990) {
-            panning();
-        }
-    }
-
-    function panning() {
-        $('body').mousemove(function(e) {
-            var mousePosX = (e.pageX / $(window).width()) * 100;
-
-            $('.bolt-image--top-front').css('left', (mousePosX / 30) + '%');
-            $('.bolt-image--top-back').css('right', (mousePosX / 60) + '%');
-            $('.bolt-image--bottom-front').css('left', (mousePosX / 30) + '%');
-            $('.bolt-image--bottom-back').css('left', (mousePosX / 60) + '%');
-
-        });
-    }
-
-    screenSize();
-
-    $(window).resize(function() {
-        screenSize();
-    });
-
-
-    // ===========================================================================
-    //
-    // Usage carousel
-    // 
-    // TODO:
-    // ✔ 1. Last <li> is active.  
-    // ✔ 2. On click down script needs to prevent position change
-    // ✔ 3. On click up script needs to append position change,
-    //      and add active state to previous child
-
-    var $searchTerm = $('.usage-carousel__item'),
-        $activeSearchTerm = $searchTerm.filter('.is-active'),
-        $searchTermList = $('.usage-carousel__list'),
-        $result = $('.result__item'),
-        $activeResult = $('.result__item').filter('.is-active');
-
-    // When user click on chevron up icon
-    $('#previous-slide').on('click', function() {
-
-        var $previousSearchTerm = $activeSearchTerm.prev();
-        var $previousResult = $activeResult.prev();
-
-        // If first item is active item, don't translate search terms list, just tilt it
-        if ($searchTerm.first().hasClass('is-active')) {
-
-            // Add subtle tilt effect to seach term list
-            $searchTermList.addClass('js-tilt js-tilt--up');
-            setTimeout(function() {
-                $searchTermList.removeClass('js-tilt js-tilt--up');
-            }, 300);
-
-            // Prevent search term list from moving up
-            return false;
-
-        }
-
-        // If first result item is active item, don't do anything
-        if ($result.first().hasClass('is-active')) {
-            return false;
-        }
-
-        // Remove active state from search term
-        $activeSearchTerm.removeClass('is-active');
-        // Remove active state from result item
-        $activeResult.removeClass('is-active');
-        // Position the list to the previous search term.
-        $searchTermList.css({ position: 'absolute' }).animate({ top: '+=90' });
-        // Add active state on previous search term
-        if ($previousSearchTerm.length) {
-            $activeSearchTerm = $previousSearchTerm.addClass('is-active');
-        }
-        // Add active state on previous result item
-        if ($previousResult.length) {
-            $activeResult = $previousResult.addClass('is-active');
-        }
-
-    });
-
-
-    // When user click on chevron down icon
-    $('#next-slide').on('click', function() {
-
-        var $nextSearchTerm = $activeSearchTerm.next();
-        var $nextResult = $activeResult.next();
-
-        // If last item is active item, don't translate search terms list, just tilt it
-        if ($searchTerm.last().hasClass('is-active')) {
-
-            // Add subtle tilt effect to seach term list
-            $searchTermList.addClass('js-tilt js-tilt--down');
-            setTimeout(function() {
-                $searchTermList.removeClass('js-tilt js-tilt--down');
-            }, 300);
-
-            // Prevent search term list from moving down
-            return false;
-        }
-
-        // If last result item is active item, don't do anything
-        if ($result.last().hasClass('is-active')) {
-            return false;
-        }
-
-        // Remove active state from search term
-        $activeSearchTerm.removeClass('is-active');
-        // Remove active state from result item
-        $activeResult.removeClass('is-active');
-        // Position the list to the next search term.
-        $searchTermList.css({ position: 'absolute' }).animate({ top: '-=90' });
-        // Add active state on next search term
-        if ($nextSearchTerm.length) {
-            $activeSearchTerm = $nextSearchTerm.addClass('is-active');
-        }
-        // Add active state on next result item
-        if ($nextResult.length) {
-            $activeResult = $nextResult.addClass('is-active');
-        }
-    });
-
-
-    // ===========================================================================
-    //
-    // Blog
-
-    function closeGranular() {
-        $('.js-granular-trigger').removeClass('is-active');
-        $('.blog-nav-granular__item').slideUp(400).removeClass('is-open');
-    }
-
-    $('.js-granular-trigger').click(function(e) {
-        // Grab current anchor value
-        var currentAttrValue = $(this).attr('href');
-
-        if ($(e.target).is('.is-active')) {
-            closeGranular();
-        } else {
-            closeGranular();
-
-            // Add is-active class to dropdown
-            $(this).addClass('is-active');
-            // Open up the hidden content panel
-            $('.blog-nav-granular ' + currentAttrValue).slideDown(300).addClass('is-open');
-        }
-
-        e.preventDefault();
-    });
-
-
-    // ===========================================================================
-    //
-    // Disqus comments section
-
-    $('.js-reveal-comments').on('click', function() {
-        var disqus_shortname = 'skgamingtest'; // Replace this value with *your* username.
-
-        // ajax request to load the disqus javascript
-        $.ajax({
-            type: "GET",
-            url: "http://" + disqus_shortname + ".disqus.com/embed.js",
-            dataType: "script",
-            cache: true
-        });
-
-        // hide the button once comments load
-        $('.article-comment__button').fadeOut();
-    });
-
-    // For opening and closing HN news section
-
-    $('.hn').on('click', function(e) {
-        var list = $(".hn-list ul");
-        if (list.css("display") === "none") {
-            list.css("display", "inline-block");
-        } else {
-            list.css("display", "none");
-        }
-        e.preventDefault();
+// pickRandomItems returns n random items from an array
+function pickRandomItems(arr, n) {
+  return arr
+    .slice()
+    .sort(function() {
+      return 0.5 - Math.random();
     })
+    .slice(0, n + 1);
+}
 
+$(document).ready(function() {
+  // ===========================================================================
+  //
+  // Notification banner for IE lt 9
+  var ieNotification = $(".browsehappy");
+  $(".browsehappy__dismiss").click(function() {
+    ieNotification.remove();
+  });
+
+  // ===========================================================================
+  //
+  // SVG Fallback for older browsers
+
+  if (!Modernizr.svg) {
+    $('img[src$=".svg"]').each(function() {
+      //Replace 'image.svg' with 'image.png'.
+      $(this).attr("src", $(this).attr("src").replace(".svg", ".png"));
+    });
+  }
+
+  // ===========================================================================
+  //
+  // Show menu navigation on smaller screen resolutions
+
+  var menu = $(".page-nav__list");
+
+  $("#page-nav-button").click(function() {
+    menu.slideToggle(200);
+  });
+
+  $(window).on("resize", function() {
+    if (!jQuery("#page-nav-button").is(":visible") && !menu.is(":visible")) {
+      menu.css({ display: "" });
+    }
+  });
+
+  // ===========================================================================
+  //
+  // Image panning
+  // Homepage intro section
+
+  function screenSize() {
+    if ($(window).width() >= 990) {
+      // panning();
+    }
+  }
+
+  function panning() {
+    $("body").mousemove(function(e) {
+      var mousePosX = e.pageX / $(window).width() * 100;
+
+      $(".bolt-image--top-front").css("left", mousePosX / 30 + "%");
+      $(".bolt-image--top-back").css("right", mousePosX / 60 + "%");
+      $(".bolt-image--bottom-front").css("left", mousePosX / 30 + "%");
+      $(".bolt-image--bottom-back").css("left", mousePosX / 60 + "%");
+    });
+  }
+
+  screenSize();
+
+  $(window).resize(function() {
+    screenSize();
+  });
+
+  // ===========================================================================
+  //
+  // Blog
+
+  function closeGranular() {
+    $(".js-granular-trigger").removeClass("is-active");
+    $(".blog-nav-granular__item").slideUp(400).removeClass("is-open");
+  }
+
+  $(".js-granular-trigger").click(function(e) {
+    // Grab current anchor value
+    var currentAttrValue = $(this).attr("href");
+
+    if ($(e.target).is(".is-active")) {
+      closeGranular();
+    } else {
+      closeGranular();
+
+      // Add is-active class to dropdown
+      $(this).addClass("is-active");
+      // Open up the hidden content panel
+      $(".blog-nav-granular " + currentAttrValue)
+        .slideDown(300)
+        .addClass("is-open");
+    }
+
+    e.preventDefault();
+  });
+
+  // ===========================================================================
+  //
+  // Disqus comments section
+
+  $(".js-reveal-comments").on("click", function() {
+    var disqus_shortname = "skgamingtest"; // Replace this value with *your* username.
+
+    // ajax request to load the disqus javascript
+    $.ajax({
+      type: "GET",
+      url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+      dataType: "script",
+      cache: true
+    });
+
+    // hide the button once comments load
+    $(".article-comment__button").fadeOut();
+  });
+
+  // ===========================================================================
+  //
+  // carousel
+
+  $(document).on("click", ".carousel-control", function(e) {
+    e.preventDefault();
+  });
+
+  // ===========================================================================
+  //
+  // navigation
+
+  $(document).on("click", ".page-intro__nav-dropdown-trigger", function(e) {
+    e.preventDefault();
+  });
+
+  // ===========================================================================
+  //
+  // typing animation for testimonials
+
+  if (window.location.pathname === "/") {
+    var typed = new Typed(".testimonial-content", {
+      // Waits 1000ms after typing "First"
+      strings: [
+        'I have worked extensively with Titan, some with Neo4j, and played around with Cayley, and Dgraph was fastest for the way I am doing things. <span class="author">-willcj33</span>',
+        'This is really exciting. I\'ve been hoping for a robust, distributed open source Graph database ever since Firebase. <span class="author">-simonw</span>',
+        'Hey guys, great work, keen to develop using dgraph <span class="author">-amit</span>'
+      ],
+      showCursor: true,
+      loop: true,
+      typeSpeed: 29,
+      backSpeed: 9,
+      startDelay: 700,
+      backDelay: 3000,
+      contentType: "html",
+      autoInsertCss: true,
+      cursorChar: ""
+    });
+  }
+
+  // ===========================================================================
+  //
+  // Fetch and display blog posts
+
+  var blogRSSEndpoint = "https://open.dgraph.io/index.xml";
+  $.get(blogRSSEndpoint, function(data) {
+    // Pick 3 random blog posts to show
+    var items = $(data).find("item");
+    var itemsToDisplay = pickRandomItems(items, 3);
+
+    itemsToDisplay.each(function(idx) {
+      var item = $(this);
+      var title = item.find("title").text();
+      var link = item.find("link").text();
+      var desc = excerpt(stripHTML(item.find("description").text()), 200);
+
+      var $articleContainer = $(".blog-article-" + idx);
+      $articleContainer.find(".title").text(title);
+      $articleContainer.find(".desc").text(desc);
+      $articleContainer.find(".link").attr("href", link);
+    });
+
+    // Display
+    $(".blog-articles").removeClass("is-loading");
+  });
+
+  // ===========================================================================
+  //
+  // Header
+
+  var visibleHeaderThreadholdY = 418;
+  function maybeToggleHeaderVisibility() {
+    var currentScrollY = document.body.scrollTop;
+
+    if (currentScrollY > visibleHeaderThreadholdY) {
+      $(".page-header__header").removeClass("hidden");
+    } else {
+      $(".page-header__header").addClass("hidden");
+    }
+  }
+
+  if (window.location.pathname === "/") {
+    window.addEventListener(
+      "scroll",
+      debounce(maybeToggleHeaderVisibility, 20)
+    );
+  }
 }); // end document ready
