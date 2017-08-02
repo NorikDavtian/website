@@ -245,7 +245,7 @@ $(document).ready(function() {
   if (window.location.pathname === "/") {
     window.addEventListener(
       "scroll",
-      debounce(maybeToggleHeaderVisibility, 20)
+      debounce(maybeToggleHeaderVisibility, 10)
     );
   }
 }); // end document ready
