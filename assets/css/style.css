@@ -1002,8 +1002,7 @@ textarea {
   position: relative;
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-          transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
   pointer-events: none;
 }
@@ -1017,8 +1016,7 @@ textarea {
   left: 0;
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-          transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
   border-radius: 2px;
 }
 .icon--menu-bar:nth-child(1) {
@@ -1279,8 +1277,7 @@ p {
 a {
   color: #f96315;
   text-decoration: none;
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 a:hover {
   color: #d64d05;
@@ -1297,8 +1294,7 @@ a:active {
   width: .9em;
   height: .9em;
   top: 3px;
-  -webkit-transition: all 0.3s ease-in-out;
-          transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .link-arrow:hover .icon {
   -webkit-transform: translateX(5px);
@@ -1770,7 +1766,6 @@ hr {
 }
 .usage-carousel__nav:before {
   top: -70px;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.5) 100%);
   background: linear-gradient(rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.5) 100%);
 }
 .usage-carousel__controls {
@@ -1785,8 +1780,7 @@ hr {
   fill: #00adf2;
   width: 30px;
   height: 30px;
-  -webkit-transition: 0.2s fill ease-in-out;
-          transition: 0.2s fill ease-in-out;
+  transition: 0.2s fill ease-in-out;
 }
 .usage-carousel__controls .icon:hover {
   fill: #0089bf;
@@ -1816,8 +1810,7 @@ hr {
   opacity: .4;
   border-radius: 5px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  -webkit-transition: opacity 0.3s ease-in-out;
-          transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 .usage-carousel__window .icon {
   width: 30px;
@@ -1837,8 +1830,7 @@ hr {
   z-index: 3;
 }
 .usage-carousel__list.js-tilt {
-  -webkit-transition: all .3s ease;
-          transition: all .3s ease;
+  transition: all .3s ease;
 }
 .usage-carousel__list.js-tilt--up {
   -webkit-transform: translateY(15px);
@@ -3060,8 +3052,7 @@ hr {
   fill: #b03626;
 }
 .share__icon {
-  -webkit-transition: all 0.3s ease-in-out;
-          transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   width: 20px;
   height: 20px;
 }
@@ -3811,8 +3802,7 @@ img {
 }
 img[data-src] {
   opacity: 0;
-  -webkit-transition: opacity 0.25s ease-in;
-          transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
 }
 .image-circle {
   border-radius: 50%;
@@ -3866,7 +3856,6 @@ img[data-src] {
   background: white;
   z-index: 99;
   opacity: 0.98;
-  background: -webkit-linear-gradient(top left, #ec662c, #ad3119);
   background: linear-gradient(to bottom right, #ec662c, #ad3119);
 }
 .page-header__header.hidden {
@@ -4308,7 +4297,6 @@ img[data-src] {
   clear: both;
 }
 .page-intro__main {
-  background: -webkit-linear-gradient(top left, #ff6e2f, #900000);
   background: linear-gradient(to bottom right, #ff6e2f, #900000);
   min-height: 555px;
 }
@@ -4396,8 +4384,7 @@ img[data-src] {
   z-index: 1;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
-  -webkit-transition-delay: 0s, 0s, 0.3s;
-          transition-delay: 0s, 0s, 0.3s;
+  transition-delay: 0s, 0s, 0.3s;
   /* this removes the transition delay so the menu will be visible while the other styles transition */
 }
 .blog-articles {
@@ -4751,8 +4738,7 @@ img[data-src] {
   line-height: 1;
   padding: 8px 0 8px 15px;
   cursor: pointer;
-  -webkit-transition: background-color 0.2s;
-          transition: background-color 0.2s;
+  transition: background-color 0.2s;
   margin-bottom: 0;
 }
 .codepen ul.querytabs li:hover {
@@ -4848,8 +4834,7 @@ img[data-src] {
 .codepen .result .float button.danger {
   background-color: #f96315;
   color: #fff;
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .codepen .query .float button.danger:hover,
 .codepen .result .float button.danger:hover {
@@ -4891,8 +4876,7 @@ img[data-src] {
   padding: 0 4px;
   outline: none;
   border: 2px solid #ccc;
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .codepen .query .root-id input:active,
 .codepen .query .root-id input:focus {
@@ -4902,6 +4886,12 @@ img[data-src] {
   font-size: 14px;
   line-height: 14px;
   padding: 5px;
+}
+.codepen .editor-results {
+  margin-left: -20px;
+}
+.codepen .editor-results .ace_gutter {
+  background: none;
 }
 .codepen .result {
   font-size: 12px;
@@ -4990,8 +4980,7 @@ img[data-src] {
   text-align: center;
   border-radius: 4px 4px 0 0;
   padding: 0 2px 1px;
-  -webkit-transition: all 0.1s;
-          transition: all 0.1s;
+  transition: all 0.1s;
   font-size: 15px;
 }
 .codepen .resulttab.active {
@@ -5011,8 +5000,7 @@ img[data-src] {
   background-color: #333;
   color: #f99157;
   padding: 5px;
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   border-bottom: 1px solid #666;
 }
 .codepen .treenode .title:hover {
@@ -5112,8 +5100,7 @@ img[data-src] {
   line-height: 36px;
   outline: none;
   border: 2px solid #ccc;
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   font-family: "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 3px 8px;
 }

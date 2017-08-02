@@ -267,13 +267,16 @@
               </h2>
             </div>
             <div ui-ace="{
-                  useWrapMode : true,
-                  showGutter: false,
-                  readOnly: true,
-                  theme:'tomorrow_night_eighties',
-                  mode: 'javascript',
-                  onLoad: responseEditorLoaded,
-               }" readonly ng-model="json_result" ng-show="result_json" class=editor></div>
+              useWrapMode : true,
+              showGutter: true,
+              readOnly: true,
+              theme:'tomorrow_night_eighties',
+              mode: 'javascript',
+              onLoad: responseEditorLoaded,
+              advanced: {
+                 showLineNumbers: false
+             }
+           }" readonly ng-model="json_result" ng-show="result_json" class="editor editor-results"></div>
             <div class="tree" ng-if="!result_json">
                 <tree obj="tree_result" expanded="true"></tree>
                 <div ng-if="!tree_result">query result is not available</div>
