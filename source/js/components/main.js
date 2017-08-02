@@ -187,7 +187,7 @@ $(document).ready(function() {
       strings: [
         'I have worked extensively with Titan, some with Neo4j, and played around with Cayley, and Dgraph was fastest for the way I am doing things. <span class="author">-willcj33</span>',
         'This is really exciting. I\'ve been hoping for a robust, distributed open source Graph database ever since Firebase. <span class="author">-simonw</span>',
-        'Hey guys, great work, keen to develop using dgraph <span class="author">-amit</span>'
+        'Hey guys, great work, keen to develop using dgraph. <span class="author">-amit</span>'
       ],
       showCursor: true,
       loop: true,
