@@ -2247,21 +2247,11 @@ hr {
   line-height: 1.1;
   margin-bottom: 5px;
 }
-@media screen and (max-width: 550px) {
-  .member__name {
-    margin-top: -80px;
-  }
-}
 .member__title {
   font-size: 22px;
   font-weight: 500;
   color: #a4958c;
   margin-bottom: 25px;
-}
-@media screen and (max-width: 550px) {
-  .member__title {
-    margin-bottom: 100px;
-  }
 }
 .member__social {
   margin-top: 15px;
@@ -2269,12 +2259,6 @@ hr {
 @media screen and (min-width: 989px) and (max-width: 1169px) {
   .member__social .social__link {
     font-size: 14px;
-  }
-}
-@media screen and (max-width: 550px) {
-  .member__social {
-    position: relative;
-    bottom: -60px;
   }
 }
 /* ===========================================
@@ -3338,6 +3322,13 @@ hr {
 .social__nav {
   display: inline-block;
   text-align: left;
+}
+@media screen and (max-width: 550px) {
+  .social__nav {
+    text-align: center;
+    display: block;
+    margin-bottom: 22px;
+  }
 }
 .social__list {
   padding: 0;

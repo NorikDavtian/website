@@ -3,88 +3,75 @@
    =========================================== */
 
 .about {
-	
 }
 
 .team-members {
-
 }
 
 .member {
-	.clearfix();
+  .clearfix();
   margin: 0 0 @spacing-base;
-	@media screen and (min-width: 550px) {
-		margin: 0 -15px @spacing-large;
-	}
-	
-	&__figure,
-	&__description {
-		@media screen and (min-width: 550px) {
-			float: left;
-			padding-left: 15px;
-	    padding-right: 15px;
-		}		
-	}
+  @media screen and (min-width: 550px) {
+    margin: 0 -15px @spacing-large;
+  }
 
-	&__figure {
-		text-align: center;
-		@media screen and (min-width: 550px) {
-			width: 40%;
-		}
-	}
+  &__figure,
+  &__description {
+    @media screen and (min-width: 550px) {
+      float: left;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
 
-	&__image {
-		.image-circle();
-		.image-responsive();
-		max-width: 136px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  &__figure {
+    text-align: center;
+    @media screen and (min-width: 550px) {
+      width: 40%;
+    }
+  }
 
-	&__description {
-		.font-size(16);
-		@media screen and (min-width: 550px) {
-			width: 60%;
-		}
-	}
+  &__image {
+    .image-circle();
+    .image-responsive();
+    max-width: 136px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	&__name,
-	&__title {
-		@media screen and (max-width: 550px) {
-			text-align: center;
-		}
-	}
+  &__description {
+    .font-size(16);
+    @media screen and (min-width: 550px) {
+      width: 60%;
+    }
+  }
 
-	&__name {
-		.font-size(27);
-		line-height: 1.1;
-		margin-bottom: 5px;
-		@media screen and (max-width: 550px) {
-			margin-top: -80px;
-		}
-	}
+  &__name,
+  &__title {
+    @media screen and (max-width: 550px) {
+      text-align: center;
+    }
+  }
 
-	&__title {
-		.font-size(22);
-		font-weight: @font-weight-medium;
-		color: @color-bronco;
-		margin-bottom: @spacing-small;
-		@media screen and (max-width: 550px) {
-			margin-bottom: 100px;
-		}
-	}
+  &__name {
+    .font-size(27);
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
 
-	&__social {
-		margin-top: 15px;
-		@media screen and (min-width: @desktop-breakpoint) and (max-width: @hd-breakpoint) {
-			.social__link {
-				.font-size(14);
-			}
-		}
-		@media screen and (max-width: 550px) {
-			position: relative;
-			bottom: -60px;
-		}
-	}
+  &__title {
+    .font-size(22);
+    font-weight: @font-weight-medium;
+    color: @color-bronco;
+    margin-bottom: @spacing-small;
+  }
 
+  &__social {
+    margin-top: 15px;
+    @media screen and (min-width: @desktop-breakpoint) and (max-width: @hd-breakpoint) {
+      .social__link {
+        .font-size(14);
+      }
+    }
+  }
 }
